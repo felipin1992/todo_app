@@ -1,0 +1,18 @@
+<div><%= link_to "Crear ToDo", todos_new_path %> </div>
+
+<div class="row">
+  <div class="col-md-1">
+  </div>
+   <div class="col-md-10">
+    <% @todos.each do |i|%>
+      <div class="card jumbotron">
+        <h1> <%= link_to i.description, todo_edit_path(i) %> </h1>
+        <p> <%= i.completed %> </p>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Completado</label></div>
+        <p> <%= link_to "Borrar", i, method: :delete %></p>
+        </div>
+      <% end %>
+   </div>
+ </div>
