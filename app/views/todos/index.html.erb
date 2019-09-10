@@ -7,12 +7,13 @@
     <% @todos.each do |i|%>
       <div class="card jumbotron">
         <h1> <%= link_to i.description, todo_edit_path(i) %> </h1>
-        <p> <%= i.completed %> </p>
-        <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Completado</label></div>
-        <p> <%= link_to "Borrar", i, method: :delete %></p>
-        </div>
+        <% if i.completed == true %>
+        <p>Completado</p>
+        <% else %>
+        <%= link_to "Completar", todo_completed_path(i) %>
+        <% end %>
+        <%= link_to "Borrar", i, method: :delete %>
+           </div>
       <% end %>
-   </div>
  </div>
+</div>
